@@ -1,0 +1,9 @@
+{
+    "contacts": [
+      { "id": 1, "name": "Maria", "tel": "8495678", "email": "m34@.mail.ru" },
+      { "id": 2, "name": "Danila", "tel": "8367589", "email": "d96@.mail.ru" },
+      { "id": 1, "name": "Ivan", "tel": "8765895", "email": "i4567@.mail.ru" },
+      { "id": 2, "name": "Lena", "tel": "8456783", "email": "t67@.mail.ru" }
+    ],
+    "profile": { "name": "typicode" }
+}
