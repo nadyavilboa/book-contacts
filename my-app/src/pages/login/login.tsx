@@ -1,12 +1,8 @@
 import cn from 'classnames';
 import {FormEvent, useRef, useState} from 'react';
-//import Logo from '../../components/logo/logo';
-//import {AppRoute} from '../../const/const';
-//import {useAppDispatch, useAppSelector} from '../../hooks';
-//import {redirectToRoute} from '../../store/action';
-//import {fetchLogin} from '../../store/user-process/user-process';
-
-import './login.module.css';
+import { Container } from '@mui/material';
+import SearchAppBar from '../../components/search-app-bar/search-app-bar';
+import './login.css';
 
 const REGEX_EMAIL = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 const REGEX_PASSWORD = /(?=.*?[A-Za-z])(?=.*?[0-9])/;
@@ -64,69 +60,75 @@ function Login(): JSX.Element {
     //     login: loginRef.current.value,
     //     password: passwordRef.current.value,
     //   }));
-    //   dispatch(redirectToRoute(AppRoute.Main));
+    //   dispatch(redirectToRoute(AppRoute.Contacts));
     }
   };
 
   return (
-    <div className="page page--gray page--login">
-      {/* <header className="header">
-        <div className="container">
-          <div className="header__wrapper">
-            <div className="header__left">
-              <Logo className="header__logo-link" />
-            </div>
-          </div>
-        </div>
-      </header> */}
+    <div className="page page--login">
+      <SearchAppBar />
       <main className="page__main page__main--login">
-        <div className="page__login-container container">
-          <section className="login">
-            <h1 className="login__title">Sign in</h1>
-            <form
-              className="login__form form"
-              action="#"
-              method="post"
-              onSubmit={handleSubmit}
-            >
-              <div className="login__input-wrapper form__input-wrapper">
-                <label className="visually-hidden">E-mail</label>
-                <input
-                  ref={loginRef}
-                  className={cn('login__input', 'form__input', { errorInput:  validateStatus.email === ValidateValues.Uncorrect })}
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  required
-                  onChange={handleloginChange}
-                />
-                {validateStatus.email === ValidateValues.Uncorrect && (
-                  <p className="errorText">
-                    {EMAIL_ERROR}
-                  </p>
-                )}
-              </div>
-              <div className="login__input-wrapper form__input-wrapper">
-                <label className="visually-hidden">Password</label>
-                <input
-                  ref={passwordRef}
-                  className={cn('login__input', 'form__input', { errorInput: validateStatus.password === ValidateValues.Uncorrect })}
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  required
-                  onChange={handlePasswordChange}
-                />
-                {validateStatus.password === ValidateValues.Uncorrect && (
-                  <p className="errorText">
-                    {PASSWORD_ERROR}
-                  </p>
-                )}
-              </div>
-              <button className="login__submit form__submit button" type="submit">Sign in</button>
-            </form>
-          </section>
-        </div>
+        <Container 
+          sx = {{
+            display: 'flex',
+            height: '100vh',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
+          <div className="login container">
+            <section className="login-section">
+              <h1 className="login__title">Sign in</h1>
+              <form
+                className="login__form form"
+                action="#"
+                method="post"
+                onSubmit={handleSubmit}
+              >
+                <div className="login__input-container">
+                  <div className="login__input-wrapper form__input-wrapper">
+                    <label className="form__label">E-mail</label>
+                    <input
+                      ref={loginRef}
+                      className={cn('login__input', 'form__input', { 'error-input':  validateStatus.email === ValidateValues.Uncorrect })}
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      required
+                      onChange={handleloginChange}
+                    />
+                  </div>
+                  {validateStatus.email === ValidateValues.Uncorrect && (
+                    <p className="error-text">
+                      {EMAIL_ERROR}
+                    </p>
+                  )}
+                </div>
+                <div className="login__input-container">
+                  <div className="login__input-wrapper form__input-wrapper">
+                    <label className="form__label form__label--password">Password</label>
+                    <input
+                      ref={passwordRef}
+                      className={cn('login__input', 'form__input', { 'error-input': validateStatus.password === ValidateValues.Uncorrect })}
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                      required
+                      onChange={handlePasswordChange}
+                    />
+                  </div>
+                  {validateStatus.password === ValidateValues.Uncorrect && (
+                    <p className="error-text">
+                      {PASSWORD_ERROR}
+                    </p>
+                  )}
+                </div>
+                <button className="login__submit form__submit button" type="submit">Sign in</button>
+              </form>
+            </section>
+          </div>
+        </Container>
+
       </main>
     </div>
   );

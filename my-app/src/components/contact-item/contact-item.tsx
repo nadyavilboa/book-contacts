@@ -1,12 +1,10 @@
 import { 
   Grid, 
-  Paper, 
-  Typography, 
-  Box,
+  Paper
 } from '@mui/material';
-import { Email, Phone } from '@mui/icons-material';
 import { createTheme, ThemeProvider } from '@mui/material';
-
+import ContactPanel from '../contact-panel/contact-panel';
+import ContactCommunications from '../contact-communications/contact-communications';
 import { Contact } from "../../types/contacts";
 
 const theme = createTheme({
@@ -39,44 +37,20 @@ type ContactItemProps = {
 }
 
 function ContactItem({contact}: ContactItemProps): JSX.Element {
-  const { name, email, phone, image } = contact;
+  const { name, email, phone } = contact;
   return (
-    <Grid item xs={3}>
+    <Grid item lg={3}>
       <ThemeProvider theme={theme}>
         <Paper elevation={3}>
+          <ContactPanel contact={contact} />
           <img 
+            width="100px"
+            height="auto"
             className="img" 
-            src={image} 
+            src={"./man.png"} 
             alt=""
           />
-          <Box paddingX={1}>
-            <Typography variant="subtitle1" component="h2">
-              {name}
-            </Typography>
-            <Box 
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                marginBottom: "30px",
-              }}
-            >
-              <Email sx={{ width: 12.5, marginRight: 0.5 }} />
-              <Typography variant="body2" component="p">
-                {email}
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center"
-              }}
-            >
-              <Phone sx={{ width: 12.5, marginRight: 0.5 }} />
-              <Typography variant="body2" component="p" marginRight={1.5}>
-                {phone}
-              </Typography>
-            </Box>
-          </Box>
+          <ContactCommunications name={name} email={email} phone={phone} />
         </Paper>
       </ThemeProvider>
     </Grid>
