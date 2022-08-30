@@ -2,8 +2,7 @@ export type Contact = {
     id: number,
     name: string,
     email: string,
-    phone: string,
-    image: string
+    phone: string
 };
 
 export type Contacts = Contact[];

@@ -1,4 +1,6 @@
 .wrapper {
+  width: fit-content;
+  margin: auto;
   text-align: center;
 }
   
@@ -11,5 +13,7 @@
   border: 2px solid darkgray;
   padding: 15px;
   border-radius: 15px;
+  text-decoration: none;
+  color: darkgray;
 }
   
