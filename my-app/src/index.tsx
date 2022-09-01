@@ -3,13 +3,25 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './components/app/App';
 import reportWebVitals from './reportWebVitals';
+import {Provider} from 'react-redux';
+import {store} from './store/index';
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import HistoryRoute from './components/history-route/history-route';
+import browserHistory from './browser-history';
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <HistoryRoute history={browserHistory}>
+        <ToastContainer />
+          <App />
+        </HistoryRoute>
+    </Provider>
   </React.StrictMode>
 );
 

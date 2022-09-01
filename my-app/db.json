@@ -1,12 +1,12 @@
 {
-    "contacts": [
-      { "id": 1, "name": "Maria", "email": "m34@.mail.ru", "phone": "8495678" },
-      { "id": 2, "name": "Danila", "email": "d96@.mail.ru", "phone": "8367589" },
-      { "id": 1, "name": "Ivan", "email": "i4567@.mail.ru", "phone": "8765895"  },
-      { "id": 2, "name": "Lena", "email": "t67@.mail.ru", "phone": "8456783" },
-      { "id": 2, "name": "Alex", "email": "al78@.mail.ru", "phone": "8398765" },
-      { "id": 1, "name": "Egor", "email": "e678@.mail.ru", "phone": "8768764" },
-      { "id": 2, "name": "Alina", "email": "al87@.mail.ru", "phone": "8450885" }
-    ],
-    "profile": { "name": "typicode" }
+  "contacts": [
+    { "id": 0, "name": "Maria", "email": "m34@.mail.ru", "phone": "8495678" },
+    { "id": 1, "name": "Danila", "email": "d96@.mail.ru", "phone": "8367589" },
+    { "id": 2, "name": "Ivan", "email": "i4567@.mail.ru", "phone": "8765895"  },
+    { "id": 3, "name": "Lena", "email": "t67@.mail.ru", "phone": "8456783" },
+    { "id": 4, "name": "Alex", "email": "al78@.mail.ru", "phone": "8398765" },
+    { "id": 5, "name": "Egor", "email": "e678@.mail.ru", "phone": "8768764" },
+    { "id": 6, "name": "Alina", "email": "al87@.mail.ru", "phone": "8450885" }
+  ],
+  "profile": { "name": "typicode" }
 }
