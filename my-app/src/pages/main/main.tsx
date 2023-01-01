@@ -1,17 +1,26 @@
 import SeachAppBar from '../../components/search-app-bar/search-app-bar';
 import ContactsSection from '../../components/contacts-section/contacts-section';
 
-import { Contact } from '../../types/contacts';
+import {useAppSelector} from '../../hooks';
+import { selectContacts, selectContactsStatus } from '../../store/contacts-process/selectors';
+import { FetchStatus } from '../../const/const';
+import Loader from '../../components/loader/loader';
 
-type MainProps = {
-  contacts: Contact[];
-}
+function Main(): JSX.Element {
+  const contacts = useAppSelector(selectContacts);
+  const status = useAppSelector(selectContactsStatus);
 
-function Main({contacts}: MainProps): JSX.Element {
+  const isError = status === FetchStatus.Failed;
+
+  if ([FetchStatus.Idle, FetchStatus.Loading].includes(status)) {
+    return (
+      <Loader />
+    );
+  }
     return (
       <div className="page page--main">
         <SeachAppBar />
-        <ContactsSection contacts={contacts} />
+        <ContactsSection requestError={isError} contacts={contacts} />
       </div>
     );
   }

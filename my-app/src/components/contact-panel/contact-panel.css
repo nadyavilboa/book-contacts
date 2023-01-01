@@ -1,0 +1,7 @@
+.button-wrapper {
+    padding: 12px 0;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-right: 10px;
+    box-shadow: 2px 2px 2px 0 #ccc;
+}

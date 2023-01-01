@@ -6,12 +6,14 @@ import FormAdd from "../FormAdd/form-add";
 import ContactItem from "../contact-item/contact-item";
 
 import { Contact } from "../../types/contacts";
+import ContactsEmpty from "../contacts-empty/contacts-empty";
 
 type ContactsSectionProps = {
+  requestError: boolean;
   contacts: Contact[];
 }
 
-function ContactsSection({contacts}: ContactsSectionProps): JSX.Element {
+function ContactsSection({requestError, contacts}: ContactsSectionProps): JSX.Element {
     return (
       <Container sx={{marginY: 5}}>
         <Box 
@@ -31,7 +33,9 @@ function ContactsSection({contacts}: ContactsSectionProps): JSX.Element {
           <FormAdd />
         </Box>
         <Grid container spacing={5}>
-          {contacts.map((contact: Contact) => (
+          {contacts.length === 0 ?
+          <ContactsEmpty requestError={requestError} />
+          : contacts.map((contact: Contact) => (
             <ContactItem contact={contact} key={Number(contact.id)} />
           ))}
         </Grid>

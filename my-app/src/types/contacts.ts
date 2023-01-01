@@ -6,3 +6,9 @@ export type Contact = {
 };
 
 export type Contacts = Contact[];
+
+export type NewContact = {
+    name: string,
+    email: string,
+    phone: string
+};

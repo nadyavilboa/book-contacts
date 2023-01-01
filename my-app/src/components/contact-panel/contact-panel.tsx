@@ -1,9 +1,10 @@
 import Box from "@mui/material/Box";
-import Fab from '@mui/material/Fab';
 import { Contact } from "../../types/contacts";
 
 import FormWarning from '../FormWarning/form-warning';
 import FormEdit from '../FormEdit/form-edit';
+
+import './contact-panel.css';
 
 type ContactPanelProps = {
   contact: Contact;
@@ -19,12 +20,12 @@ function ContactPanel({contact}: ContactPanelProps): JSX.Element {
           padding: "5px",  
         }}
         >
-          <Fab color="inherit" size="small" aria-label="edit" sx={{marginRight: "5px"}}>
+          <div className="button-wrapper" aria-label="edit">
             <FormEdit contact={contact} />
-          </Fab>
-          <Fab color="inherit" size="small" aria-label="delete">
+          </div>
+          <div className="button-wrapper" aria-label="delete">
             <FormWarning name={contact.name} />
-          </Fab>
+          </div>
       </Box>
     );
   }
